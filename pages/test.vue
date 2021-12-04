@@ -45,11 +45,7 @@
       </div>
       <div class="flex w-full justify-center">
         <div>
-          <Tab
-            :tabs="tabs"
-            :initial-tab="initialTab"
-            @activetab="settab($event)"
-          >
+          <Tab :tabs="tabs" :initial-tab="initialTab">
             <template
               slot="tab-head-General Question"
               class="font-medium text-gray-500 border-b-2 border-blue-600"
@@ -92,7 +88,7 @@
               <div class="flex justify-end w-full mt-6">
                 <button
                   class="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded-md"
-                  @click="settab('Personality Assessment')"
+                  @click="onClick"
                 >
                   Go to Personality assessment
                 </button>
@@ -460,7 +456,6 @@
               <div class="flex justify-end w-full mt-6">
                 <button
                   class="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded-md"
-                  @click="settab(nextTab)"
                 >
                   Next Section
                 </button>
@@ -484,33 +479,21 @@ export default {
   data() {
     return {
       initialTab: 'General Question',
-      lastTab: 'Personality Assessment',
+      tab: 'Personality Assessment',
       tabs: ['General Question', 'Personality Assessment'],
     }
-  },
-  computed: {
-    nextTab() {
-      return this.tabs[this.tabs.length - 1]
-    },
   },
   watch: {
     $route() {},
   },
   methods: {
-    settab(tab) {
-      console.log(tab)
+    onClick(tab) {
       this.initialTab = tab
-    },
-    onClick() {
-      // console.log(this.initialTab)
-      // this.initialTab = 'Personality Assessment'
-      // console.log(this.initialTab)
-      // return (this.initialTab = 'Personality Assessment')
-      // const routeData = this.$router.resolve({
-      //   name: 'routeName',
-      //   query: { data: 'someData' },
-      // })
-      // window.open(routeData.href, '_blank')
+      //   const routeData = this.$router.resolve({
+      //     name: 'routeName',
+      //     query: { data: 'someData' },
+      //   })
+      //   window.open(routeData.href, '_blank')
       // return this.$router.push({ path: this.lastTab })
     },
   },

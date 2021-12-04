@@ -38,12 +38,17 @@ export default {
   },
   data() {
     return {
-      activeTab: this.initialTab,
+      activeTab: this.tabs[0],
     }
   },
   computed: {
     tabPanelSlotName() {
       return `tab-panel-${this.activeTab}`
+    },
+  },
+  watch: {
+    initialTab(value) {
+      this.activeTab = this.tabs[this.tabs.indexOf(value)]
     },
   },
   methods: {
@@ -53,6 +58,7 @@ export default {
 
     switchTab(tabName) {
       this.activeTab = tabName
+      this.$emit('activetab', tabName)
     },
   },
 }
