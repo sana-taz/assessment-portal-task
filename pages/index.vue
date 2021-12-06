@@ -5,7 +5,7 @@
         <header class="flex p-8 text-sm">LOGO</header>
       </div>
       <div class="flex w-full justify-center mt-12">
-        <div class="text-sm p-4 bg-gray-200 m-4">
+        <div class="text-sm container p-4 bg-gray-200 m-4">
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
           since the 1500s, when an unknown printer took a galley of type and
